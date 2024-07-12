@@ -1,0 +1,47 @@
+.navContainer{
+    height: 50px;
+}
+
+.wrapper{
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+.left{
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo{
+    font-size: 35px;
+    font-weight: bold;
+    text-decoration: underline rgb(104, 26, 250);
+}
+
+.menu{
+display: flex;
+}
+.menuItem{
+margin-right: 30px;
+font-size: 20px;
+font-weight: bold;
+color: gray;
+list-style: none;
+}
+.navButton{
+    border: 2px solid white;
+    padding: 10px 15px;
+    background-color: rgb(85, 27, 245);
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 480px) {
+    .menu {
+        display: none !important;
+    }
+}
