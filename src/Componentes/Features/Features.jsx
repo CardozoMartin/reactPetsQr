@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Features = () => {
   return (
     <>
@@ -29,9 +31,9 @@ const Features = () => {
                 </p>
               </div>
               <div className="flex justify-center">
-                <a class="mt-8 inline-block rounded bg-indigo-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-yellow-400">
-                  Mas info
-                </a>
+                <Link to={"/help"} class="mt-8 inline-block rounded bg-indigo-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-yellow-400">
+                  Ayuda
+                </Link>
               </div>
             </div>
           </div>
