@@ -1,13 +1,15 @@
 const API_URL = import.meta.env.VITE_API_URL;
 
+
+
 export const postCommentFn = async (data) => {
-  
   const formData = new FormData();
   formData.append("userName", data.userName);
   formData.append("comments", data.comments);
-  formData.append("image", data.image);
+  if (data.image) {
+    formData.append("image", data.image);
+  }
   formData.append("userID", data.userID);
-  
 
   const res = await fetch(`${API_URL}/comments`, {
     method: "POST",
@@ -20,6 +22,7 @@ export const postCommentFn = async (data) => {
 
   return data;
 };
+
 
 export const getCommetFn = async () => {
   const res = await fetch(`${API_URL}/comments`);

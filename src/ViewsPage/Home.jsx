@@ -30,12 +30,22 @@ const Home = () => {
         </div>
       )}
       {isLoggedIn && (
-        <div>
-   
+        <article>
+          <div className="bg-violet-700">
+           
           <FormPets />
-          <PetGallery />
-          <FormCommets/>
         </div>
+        <div>
+          <PetGallery />
+
+        </div>
+          <FormCommets/>
+
+        <div>
+
+        </div>
+        </article>
+        
       )}
       <div className="containerTwho">
         <Features />

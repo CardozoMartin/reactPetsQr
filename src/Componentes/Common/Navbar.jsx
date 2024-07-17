@@ -30,7 +30,7 @@ const Navbar = () => {
     <div className="navContainer">
       <div className="wrapper">
         <span className="left">
-          <h1 className="logo">PetsQr</h1>
+          <h1 className="logo"> <i class="bi bi-qr-code"></i>   Pets QR</h1>
           {!isLoggedIn && (
             <ul className="menu">
               <NavLink to={"/"}>
@@ -45,7 +45,7 @@ const Navbar = () => {
             </ul>
           )}
         </span>
-        {!isLoggedIn && <button className="navButton">Ingresar</button>}
+        {!isLoggedIn && <Link to={"/login"} className="navButton">Ingresar</Link>}
         {isLoggedIn && (
           <button onClick={handleLogout} className="navButton">
             Salir

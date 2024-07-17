@@ -71,13 +71,13 @@ const FormPets = () => {
 
   const onSubmit = async (data) => {
     Swal.showLoading();
-  
+
     const petData = {
       ...data,
       userID: user.id,
       image: image || pet.image, // Asegúrate de que image tenga un valor válido
     };
-  
+
     if (isEditing) {
       // Si no se ha seleccionado una nueva imagen, mantener la imagen existente
       if (!image) {
@@ -89,23 +89,26 @@ const FormPets = () => {
       postPet(petData);
     }
   };
-  
+
 
   const handleImageChange = (newImage) => {
     setImage(newImage);
   };
 
   return (
-    <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 bg-violet-700">
+      <div className="bg-yellow-50 bg-opacity-75 border-l-4 border-yellow-500 text-yellow-700 p-4" role="alert">
+  <p className="font-bold text-center">Recorda</p>
+  <p className="text-center">La informacion debe ser correcta. Ya que esta aparecera en el perfil de tu mascota</p>
+</div>
+
       <div className="mx-auto max-w-lg">
-        <h1 className="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">
+        <h1 className="text-center text-2xl font-bold text-white sm:text-5xl">
           {isEditing ? "Editar mascota" : "Agregar una mascota"}
         </h1>
-        <div className="alert alert-danger">
-          ATENCION!!! Recuerda cargar todos los datos y verificar que sean correctos para tener todo en orden.
-        </div>
+       
         <form
-          className="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8 bg-white"
+          className="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8 bg-gray-100"
           encType="multipart/form-data"
           onSubmit={handleSubmit(onSubmit)}
         >
@@ -164,7 +167,7 @@ const FormPets = () => {
               placeholder="Agregue alguna información especial o cuidados médicos..."
             />
           </div>
-          
+
           <ImageUpload onImageSelect={handleImageChange} />
 
           <p className="text-center text-lg font-medium">Información de contacto</p>
@@ -205,7 +208,7 @@ const FormPets = () => {
             />
           </div>
           <div>
-            <label htmlFor="instagram">
+            <label htmlFor="instagram" className="sr-only">
               Red Social Instagram
             </label>
             <input

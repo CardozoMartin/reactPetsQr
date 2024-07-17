@@ -59,13 +59,12 @@ const ForPetId = () => {
                     <img
                       src={pet.data.image}
                       className="rounded-full object-cover h-full w-full shadow-md"
+                      alt={pet.data.name}
                     />
                   </div>
                 </div>
                 <div className="px-6 mt-16">
                   <div className=" mt-10 mb-10">
-
-
                     <h1 className="font-bold text-3xl text-center mb-1">
                       <span className="font-light text-gray-500 text-sm">Me llamo :  </span>
                       {pet.data.name}
@@ -74,7 +73,6 @@ const ForPetId = () => {
                       Raza: {pet.data.raza}
                     </p>
                   </div>
-
                   <p className="text-center text-gray-600 text-base pt-3 font-normal">
                     Información Adicional: {pet.data.content}
                   </p>
@@ -95,7 +93,6 @@ const ForPetId = () => {
                         <span className="mt-1 ms-2">Instagram</span>
                       </a>
                     </button>
-
                   </div>
                   <p className="text-gray-800 font-extrabold mt-5 mb-5 text-sm text-center">
                     Dirección: {pet.data.direccion}
@@ -106,7 +103,24 @@ const ForPetId = () => {
             </div>
           </div>
         </section>
-        {/* Aquí se pasa la dirección al componente GoogleMapEmbed */}
+
+        {/* Modal para mostrar la imagen en tamaño completo */}
+        <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          contentLabel="Imagen del pet"
+          className="modal"
+          overlayClassName="overlay"
+        >
+          <div className="flex justify-end">
+            <button className="modal-close-btn" onClick={closeModal}>
+              X
+            </button>
+          </div>
+          <div className="modal-content">
+            <img src={pet.data.image} alt={pet.data.name} className="modal-image" />
+          </div>
+        </Modal>
 
       </>
     );

@@ -28,11 +28,11 @@ const Card = (props) => {
 
   const handleDelete = () => {
     Swal.fire({
-      title: "¿Are you sure?",
-      text: `You're aboute to delete the product "${pet.name}"`,
+      title: "¿Estás seguro?",
+      text: `Estás a punto de eliminar la mascota "${pet.name}"`,
       showCancelButton: true,
-      confirmButtonText: "Yes, delete",
-      cancelButtonText: "Cancel",
+      confirmButtonText: "Sí, eliminar",
+      cancelButtonText: "Cancelar",
     }).then((res) => {
       if (res.isConfirmed) {
         Swal.showLoading();
@@ -40,6 +40,7 @@ const Card = (props) => {
       }
     });
   };
+  
   const handleEdit = () => {
     setPetToEdit(pet);
   };
@@ -80,7 +81,7 @@ const Card = (props) => {
             <img
               alt=""
               src={pet.image}
-              className="size-16 rounded-lg object-cover shadow-sm"
+              className="size-22 rounded-lg object-cover shadow-sm"
             />
           </div>
         </div>

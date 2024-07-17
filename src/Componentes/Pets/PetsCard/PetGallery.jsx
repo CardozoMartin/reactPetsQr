@@ -10,6 +10,7 @@ const PetGallery = () => {
     isError,
     isLoading,
   } = useQuery({ queryKey: ["pet"], queryFn: getPetFn });
+ 
 
   if (isError) {
     return <div>Ocurrio un error al cargar las mascotas</div>;
@@ -19,7 +20,10 @@ const PetGallery = () => {
       {isLoading ? (
         <h3 className="text-dark mt-3 text-center">Loading...</h3>
       ) : (
+        <>
+        <h1 className="text-center font-extrabold text-5xl">Mis Mascotas</h1>
         <PetCard pet={pet}></PetCard>
+        </>
       )}
     </>
   );

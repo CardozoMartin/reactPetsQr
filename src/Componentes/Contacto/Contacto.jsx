@@ -1,29 +1,53 @@
 
 import emailjs from "@emailjs/browser";
 import { useRef } from "react";
+import Swal from "sweetalert2";
 const SERVIDE_ID = import.meta.env.VITE_SERVICE_ID;
 const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID;
 const PUBLIC_KEY = import.meta.env.VITE_PUBLIC_KEY;
 const Contacto = () => {
     const form = useRef();
-  const sendEmail = (e) => {
-    e.preventDefault();
-
-    emailjs
-      .sendForm(SERVIDE_ID, TEMPLATE_ID, form.current, {
-        publicKey: PUBLIC_KEY,
-      })
-      .then(
-        () => {
-          toast.success("Correo enviado exitosamente !!!");
-          form.current.reset();
-        },
-        (error) => {
-          toast.error("Ocurrio un error, intente mas tarde.");
-          console.log("FAILED...", error.text);
-        }
-      );
-  };
+    const sendEmail = (e) => {
+      e.preventDefault();
+  
+      const user_name = form.current.user_name.value.trim();
+      const email = form.current.email.value.trim();
+      const message = form.current.message.value.trim();
+  
+      if (!user_name || !email || !message) {
+        Swal.fire({
+          icon: 'warning',
+          title: 'Campos Vacíos',
+          text: 'Por favor, completa todos los campos antes de enviar.',
+          confirmButtonText: 'Aceptar'
+        });
+        return;
+      }
+  
+      emailjs
+        .sendForm(SERVIDE_ID, TEMPLATE_ID, form.current, {
+          publicKey: PUBLIC_KEY,
+        })
+        .then(
+          () => {
+            Swal.fire({
+              icon: 'success',
+              title: '¡Correo enviado!',
+              text: 'Tu mensaje ha sido enviado exitosamente.',
+              confirmButtonText: 'Aceptar'
+            });
+            form.current.reset();
+          },
+          (error) => {
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Ocurrió un error, intenta más tarde.',
+              confirmButtonText: 'Aceptar'
+            });
+          }
+        );
+    };
   return (
   
     <section className="relative z-10 overflow-hidden bg- py-20 dark:bg-dark lg:py-[120px] container mt-10 bg-violet-700">

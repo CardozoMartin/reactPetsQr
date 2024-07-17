@@ -7,6 +7,7 @@ import ForPetId from "./ViewsPage/ForPetId";
 import Navbar from "./Componentes/Common/Navbar";
 import HelpViews from "./ViewsPage/HelpViews";
 import Footer from "./Componentes/Common/Footer";
+import LoginViews from "./ViewsPage/LoginViews";
 
 
 const Router = () => {
@@ -21,6 +22,8 @@ const Router = () => {
           element={<RegisterViews></RegisterViews>}
         />
         <Route exact path="/help" element={<HelpViews></HelpViews>} />
+        <Route exact path="/login" element={<LoginViews></LoginViews>} />
+
         <Route exact path="/pet-details/:petId" element={<ForPetId />}></Route>
       </Routes>
       <Toaster position="top-right" richColors />

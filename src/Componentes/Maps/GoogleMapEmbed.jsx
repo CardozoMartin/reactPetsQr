@@ -9,7 +9,7 @@ const GoogleMapEmbed = ({ address }) => {
 
   return (
     <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
-      <div style={{ width: '500px', height: '450px', borderRadius: '10px', overflow: 'hidden' }}>
+      <div style={{ width: '400px', height: '400px', borderRadius: '10px', overflow: 'hidden' }}>
         <iframe
           title="Google Maps"
           width="100%"

@@ -20,12 +20,13 @@ const EmblaCarousel = ({ comments, options }) => {
 
     return (
         <section className="embla">
+            <h1 className='text-5xl font-extrabold text-center pb-20'>Comentarios</h1>
             <div className="embla__viewport" ref={emblaRef}>
                 <div className="embla__container">
                     {comments.map((comment, index) => (
                         <div className="embla__slide" key={index}>
                             <div className="wrapper bg--400 antialiased border text-gray-900">
-                                <div>
+                                <div className="w-full object-cover object-center rounded-lg shadow-md">
 
                                     <img src={comment.image} alt=" random imgee" className="w-full object-cover object-center rounded-lg shadow-md" />
 

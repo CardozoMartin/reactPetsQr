@@ -84,15 +84,15 @@ const Form = () => {
 
       <div className="flex items-center justify-between">
         <p className="text-sm text-white">
-          ¿No tienes cuenta?
-          <Link className="underline font-extrabold" to="/register">
-            Regístrate
+          ¿No tienes cuenta?    
+          <Link className="underline font-extrabold  hover:text-black" to="/register">
+           {"   "} Regístrate
           </Link>
         </p>
 
         <button
           type="submit"
-          className="inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white hover:bg-blue-800"
+          className="inline-block rounded-lg bg-emerald-600 px-5 py-3 text-sm font-medium text-white hover:bg-emerald-800"
           disabled={isLoading} // Deshabilita el botón mientras se carga la mutación
         >
           {isLoading ? 'Cargando...' : 'Ingresar'}
